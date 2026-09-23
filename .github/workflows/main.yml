@@ -3,7 +3,7 @@ name: Construire SP Connect
 on:
   push:
     branches:
-      - main
+      - principal
   workflow_dispatch:
 
 jobs:
@@ -23,9 +23,11 @@ jobs:
 
       - name: Donner les permissions à Gradle
         run: chmod +x gradlew
+        working-directory: application
 
       - name: Construire l'application
-        run: ./gradlew :application:assembleDebug
+        run: ./gradlew assembleDebug
+        working-directory: application
 
       - name: Publier l'APK
         uses: actions/upload-artifact@v4
