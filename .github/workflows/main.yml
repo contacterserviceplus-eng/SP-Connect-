@@ -3,7 +3,7 @@ name: Construire SP Connect
 on:
   push:
     branches:
-      - principal
+      - main
   workflow_dispatch:
 
 jobs:
