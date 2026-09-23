@@ -59,5 +59,11 @@ class MainActivity : Activity() {
         params.setMargins(0, 8, 0, 8)
 
         layout.addView(bouton, params)
+   bouton.setOnClickListener {
+    android.widget.Toast.makeText(
+        this,
+        "Vous avez sélectionné : $texte",
+        android.widget.Toast.LENGTH_SHORT
+            ).show()
     }
 }
