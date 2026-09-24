@@ -1,4 +1,4 @@
-package com.sponnect.application
+package com.spconnect.application
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : Activity() {
 
@@ -16,7 +17,7 @@ class MainActivity : Activity() {
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
         layout.gravity = Gravity.CENTER
-        layout.setPadding(32, 32, 32, 32)
+        layout.setPadding(32, 40, 32, 40)
 
         val title = TextView(this)
         title.text = "SP Connect"
@@ -25,11 +26,11 @@ class MainActivity : Activity() {
         title.gravity = Gravity.CENTER
 
         val subtitle = TextView(this)
-        subtitle.text = "Bienvenue sur SP Connect"
+        subtitle.text = "Cours à domicile, simplement."
         subtitle.textSize = 18f
         subtitle.setTextColor(Color.DKGRAY)
         subtitle.gravity = Gravity.CENTER
-        subtitle.setPadding(0, 16, 0, 24)
+        subtitle.setPadding(0, 12, 0, 32)
 
         layout.addView(title)
         layout.addView(subtitle)
@@ -38,7 +39,8 @@ class MainActivity : Activity() {
         ajouterBouton(layout, "Parent")
         ajouterBouton(layout, "Élève-professeur")
         ajouterBouton(layout, "Professeur titulaire")
-        ajouterBouton(layout, "Établissement / Université")
+        ajouterBouton(layout, "École / Université")
+        ajouterBouton(layout, "Commercial")
         ajouterBouton(layout, "Administration")
 
         setContentView(layout)
@@ -59,11 +61,13 @@ class MainActivity : Activity() {
         params.setMargins(0, 8, 0, 8)
 
         layout.addView(bouton, params)
-   bouton.setOnClickListener {
-    android.widget.Toast.makeText(
-        this,
-        "Vous avez sélectionné : $texte",
-        android.widget.Toast.LENGTH_SHORT
+
+        bouton.setOnClickListener {
+            Toast.makeText(
+                this,
+                "Ouverture de l'espace : $texte",
+                Toast.LENGTH_SHORT
             ).show()
+        }
     }
 }
