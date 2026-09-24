@@ -1,6 +1,7 @@
 package com.spconnect.application
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.graphics.Color
 import android.view.Gravity
@@ -63,11 +64,20 @@ class MainActivity : Activity() {
         layout.addView(bouton, params)
 
         bouton.setOnClickListener {
-            Toast.makeText(
-                this,
-                "Ouverture de l'espace : $texte",
-                Toast.LENGTH_SHORT
-            ).show()
+
+            if (texte == "Élève") {
+
+                val intent = Intent(this, EleveActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(
+                    this,
+                    "Ouverture de l'espace : $texte",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 }
