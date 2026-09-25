@@ -7,11 +7,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".MainActivity"<activity<activity
-    android:name=".EleveActivity"
-    android:exported="false" />
-    android:name=".EleveActivity"
-    android:exported="false" />
+            android:name=".MainActivity"
             android:exported="true">
 
             <intent-filter>
