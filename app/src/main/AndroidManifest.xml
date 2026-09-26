@@ -8,7 +8,7 @@ import android.widget.Button
 class EleveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_eleve) // vérifie si ton layout s'appelle comme ça
+        setContentView(R.layout.activity_eleve)
 
         val btnPaiement = findViewById<Button>(R.id.btnAllerPaiement)
         btnPaiement.setOnClickListener {
