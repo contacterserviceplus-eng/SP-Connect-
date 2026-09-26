@@ -1,10 +1,10 @@
 package com.spconnect.application
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.graphics.Color
 import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -53,10 +53,11 @@ class MainActivity : Activity() {
     ) {
         val bouton = Button(this)
         bouton.text = texte
+        bouton.textSize = 16f
 
         val params = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
         params.setMargins(0, 8, 0, 8)
@@ -64,20 +65,11 @@ class MainActivity : Activity() {
         layout.addView(bouton, params)
 
         bouton.setOnClickListener {
-
-            if (texte == "Élève") {
-
-                val intent = Intent(this, EleveActivity::class.java)
-                startActivity(intent)
-
-            } else {
-
-                Toast.makeText(
-                    this,
-                    "Ouverture de l'espace : $texte",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            Toast.makeText(
+                this,
+                "Section : $texte",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
