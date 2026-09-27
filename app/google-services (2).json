@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "365403872426",
+    "project_id": "sp-connect-4221d",
+    "storage_bucket": "sp-connect-4221d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365403872426:android:c6bd47d60e076e662ac4d3",
+        "android_client_info": {
+          "package_name": "com.spconnect.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw-pr2SvkP--D6HxmUB4tdZPs5BSfDbLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
