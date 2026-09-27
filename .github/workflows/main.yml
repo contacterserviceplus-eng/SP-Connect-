@@ -21,16 +21,21 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Vérifier les fichiers
+        run: |
+          echo "Contenu du projet :"
+          ls -la
+          echo "Recherche de gradlew :"
+          find . -name gradlew -type f
+
       - name: Donner les permissions à Gradle
         run: chmod +x gradlew
-        working-directory: application
 
       - name: Construire l'application
         run: ./gradlew assembleDebug
-        working-directory: application
 
       - name: Publier l'APK
         uses: actions/upload-artifact@v4
         with:
           name: SP-Connect-debug
-          path: application/build/outputs/apk/debug/*.apk
+          path: "**/build/outputs/apk/debug/*.apk"
