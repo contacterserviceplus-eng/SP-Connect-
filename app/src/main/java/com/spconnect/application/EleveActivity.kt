@@ -1,6 +1,7 @@
-package com.spconnect.application
+package com.spconnect.app
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.graphics.Color
 import android.view.Gravity
@@ -17,10 +18,10 @@ class EleveActivity : Activity() {
 
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
-        layout.setPadding(32, 40, 32, 40)
+        layout.setPadding(35, 40, 32, 40)
 
         val title = TextView(this)
-        title.text = "Inscription Élève"
+        title.text = "Inscription Eleve"
         title.textSize = 28f
         title.setTextColor(Color.BLACK)
         title.gravity = Gravity.CENTER
@@ -29,13 +30,13 @@ class EleveActivity : Activity() {
         layout.addView(title)
 
         val nom = champ("Nom")
-        val prenom = champ("Prénom")
-        val telephone = champ("Téléphone")
+        val prenom = champ("Prenom")
+        val telephone = champ("Telephone")
         val email = champ("Adresse e-mail")
-        val etablissement = champ("Établissement")
+        val etablissement = champ("Etablissement")
         val classe = champ("Classe / Niveau")
-        val matieres = champ("Matières demandées")
-        val adresse = champ("Adresse de résidence")
+        val matieres = champ("Matieres demandees")
+        val adresse = champ("Adresse de residence")
 
         layout.addView(nom)
         layout.addView(prenom)
@@ -53,15 +54,12 @@ class EleveActivity : Activity() {
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-
         buttonParams.setMargins(0, 24, 0, 0)
 
         layout.addView(continuer, buttonParams)
 
         continuer.setOnClickListener {
-
-            if (
-                nom.text.toString().isBlank() ||
+            if (nom.text.toString().isBlank() ||
                 prenom.text.toString().isBlank() ||
                 telephone.text.toString().isBlank() ||
                 classe.text.toString().isBlank()
@@ -74,31 +72,36 @@ class EleveActivity : Activity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Informations enregistrées. Étape suivante.",
+                    "Informations enregistrees. Etape suivante.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
 
-        setContentView(layout)
-    }
-
-    private fun champ(indication: String): EditText {
-        val champ = EditText(this)
-
-        champ.hint = indication
-        champ.textSize = 16f
-        champ.setSingleLine(true)
-
-        val params = LinearLayout.LayoutParams(
+        // BOUTON POUR ALLER AU PAIEMENT
+        val btnPaiement = Button(this)
+        btnPaiement.text = "Aller au Paiement"
+        
+        val btnParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
+        btnParams.setMargins(0, 24, 0, 0)
+        
+        layout.addView(btnPaiement, btnParams)
+        
+        btnPaiement.setOnClickListener {
+            val intent = Intent(this, PaiementActivity::class.java)
+            startActivity(intent)
+        }
 
-        params.setMargins(0, 6, 0, 6)
+        setContentView(layout)
+    }
 
-        champ.layoutParams = params
-
-        return champ
+    private fun champ(label: String): EditText {
+        val editText = EditText(this)
+        editText.hint = label
+        editText.setPadding(0, 0, 0, 16)
+        return editText
     }
 }
