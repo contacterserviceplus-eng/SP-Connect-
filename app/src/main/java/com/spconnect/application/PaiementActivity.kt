@@ -1,4 +1,4 @@
-package com.spconnect.application
+package com.spconnect.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
