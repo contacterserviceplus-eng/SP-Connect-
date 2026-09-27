@@ -6,15 +6,19 @@
         android:allowBackup="true"
         android:label="SP Connect"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        
         <activity
-            android:name=".ElevenActivity"
+            android:name=".EleveActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PaiementActivity" />
-    </application>
 
+        <activity
+            android:name=".PaiementActivity"
+            android:exported="false" />
+            
+    </application>
 </manifest>
