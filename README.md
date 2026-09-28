@@ -1,25 +1,18 @@
-
 # SP Connect
 
-## Présentation
+Projet Android de Service Plus Bénin / SP Connect.
 
-SP Connect est une application éducative qui facilite la mise en relation entre les élèves, les élèves-professeurs et les professeurs pour organiser des cours à domicile.
+## Paiement intégré
+L'application contient un flux Mobile Money avec :
+- MTN Mobile Money
+- Moov Money
+- Celtis Money
+- saisie du montant, numéro payeur et référence de transaction
+- enregistrement de la demande dans Firebase Firestore
+- statut initial `PENDING` pour validation par l'administration
+- identifiant unique de paiement
 
-## Fonctionnalités
+## Mise en production
+Les numéros Mobile Money sont volontairement placés dans `PaymentConfig.kt` sous forme `À CONFIGURER` : ils doivent être remplacés par les numéros professionnels validés.
 
-- Inscription des élèves
-- Inscription des élèves-professeurs
-- Inscription des professeurs
-- Validation des profils
-- Mise en relation selon les disponibilités
-- Organisation et suivi des séances
-- Vérification des heures d'arrivée et de clôture
-- Suivi des paiements
-- Gestion des séances effectuées
-- Suivi des revenus
-
-## Objectif
-
-Faciliter l'accès aux cours à domicile et permettre une gestion simple et transparente des séances.
-
-**SP Connect — Cours à domicile, simplement.**
+Le flux actuel est une **validation de paiement**. Pour débiter automatiquement le client et confirmer automatiquement la transaction, il faut connecter une API de paiement Mobile Money avec ses identifiants marchands et son webhook côté serveur.
